@@ -1,5 +1,7 @@
 package frc.robot.subsystems;
 
+import static frc.robot.util.Constants.IntakeConstants.*;
+
 import com.ctre.phoenix6.CANBus;
 import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
@@ -13,8 +15,7 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.RioConstants;
-import static frc.robot.Constants.IntakeConstants.*;
+import frc.robot.util.Constants.RioConstants;
 
 public class Intake extends SubsystemBase {
   private final CANBus m_CANbus = RioConstants.RIO_BUS;
@@ -117,7 +118,13 @@ public class Intake extends SubsystemBase {
 
   public Command deployIntake() {
     return runOnce(() -> {
+      moveToIntake(DEPLOYED_POSITION);
+    });
+  }
 
+  public Command retractIntake() {
+    return runOnce(() -> {
+      moveToIntake(STARTING_POSITION);
     });
   }
 

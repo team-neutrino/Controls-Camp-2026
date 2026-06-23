@@ -1,4 +1,4 @@
-package frc.robot;
+package frc.robot.util;
 
 import com.ctre.phoenix6.CANBus;
 
@@ -24,8 +24,6 @@ public final class Constants {
 
     public static final double STARTING_POSITION = 0;
     public static final double DEPLOYED_POSITION = -14.6;
-    public static final double INTERMEDIATE_POSITION_1 = -5;
-    public static final double INTERMEDIATE_POSITION_2 = -12;
     public static final double ALLOWED_TARGET_ERROR = 0.25;
 
     public static final double INTAKE_kP = 2.25;
