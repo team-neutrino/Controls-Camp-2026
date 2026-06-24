@@ -1,9 +1,19 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.configs.TalonFXConfiguration;
+import com.ctre.phoenix6.controls.VoltageOut;
+import com.ctre.phoenix6.hardware.TalonFX;
+import static frc.robot.util.Constants.IntakeConstants.*;
+import static frc.robot.util.Constants.RioConstants.*;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Intake extends SubsystemBase {
+
+  private TalonFX m_rollerMotor = new TalonFX(ROLLER_MOTOR_ID, RIO_BUS);
+  private TalonFXConfiguration m_rollerMotorConfig = new TalonFXConfiguration();
+  private final VoltageOut m_rollerVoltageControl = new VoltageOut(0);
 
   public Intake() {
   }
