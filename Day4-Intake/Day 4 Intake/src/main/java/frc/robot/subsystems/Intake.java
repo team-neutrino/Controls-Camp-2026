@@ -1,8 +1,8 @@
 package frc.robot.subsystems;
 
 import static frc.robot.util.Constants.IntakeConstants.*;
+import static frc.robot.util.Constants.RioConstants.*;
 
-import com.ctre.phoenix6.CANBus;
 import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.Follower;
@@ -15,13 +15,11 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.util.Constants.RioConstants;
 
 public class Intake extends SubsystemBase {
-  private final CANBus m_CANbus = RioConstants.RIO_BUS;
-  private TalonFX m_rollerMotor = new TalonFX(ROLLER_MOTOR_ID, m_CANbus);
-  private TalonFX m_rollerFollowerMotor = new TalonFX(FOLLOWER_MOTOR_ID, m_CANbus);
-  private TalonFX m_deployMotor = new TalonFX(DEPLOY_MOTOR_ID, m_CANbus);
+  private TalonFX m_rollerMotor = new TalonFX(ROLLER_MOTOR_ID, RIO_BUS);
+  private TalonFX m_rollerFollowerMotor = new TalonFX(FOLLOWER_MOTOR_ID, RIO_BUS);
+  private TalonFX m_deployMotor = new TalonFX(DEPLOY_MOTOR_ID, RIO_BUS);
 
   private TalonFXConfiguration m_rollerMotorConfig = new TalonFXConfiguration();
   private TalonFXConfiguration m_deployMotorConfig = new TalonFXConfiguration();
