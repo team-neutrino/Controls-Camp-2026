@@ -81,6 +81,14 @@ public class Intake extends SubsystemBase {
     m_rollerMotor.setControl(m_rollerVoltageControl.withOutput(voltage));
   }
 
+  public void setIntakePID(double new_P, double new_I, double new_D) {
+    m_deployMotorConfig.Slot0.kP = new_P;
+    m_deployMotorConfig.Slot0.kI = new_I;
+    m_deployMotorConfig.Slot0.kD = new_D;
+
+    m_deployMotor.getConfigurator().apply(m_deployMotorConfig);
+  }
+
   @Override
   public void periodic() {
     spinRoller(m_rollerMotorVoltage);
