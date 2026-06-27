@@ -95,15 +95,10 @@ public class Intake extends SubsystemBase {
     moveToIntake(m_targetAngle);
   }
 
-  /**
-   * Example command factory method.
-   *
-   * @return a command
-   */
-  public Command exampleMethodCommand() {
-    return runOnce(
+  public Command defaultCommand() {
+    return run(
         () -> {
-
+          m_rollerMotorVoltage = 0;
         });
   }
 
@@ -117,20 +112,23 @@ public class Intake extends SubsystemBase {
     return runOnce(() -> {
       if (m_isDeployed) {
         m_targetAngle = DEPLOYED_POSITION;
+      } else {
+        m_targetAngle = 0;
       }
-      m_targetAngle = 0;
     });
   }
 
   public Command deployIntake() {
     return runOnce(() -> {
-      moveToIntake(DEPLOYED_POSITION);
+      m_targetAngle = DEPLOYED_POSITION;
+      m_isDeployed = true;
     });
   }
 
   public Command retractIntake() {
     return runOnce(() -> {
-      moveToIntake(STARTING_POSITION);
+      m_targetAngle = 0;
+      m_isDeployed = false;
     });
   }
 
