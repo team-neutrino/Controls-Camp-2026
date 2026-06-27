@@ -110,6 +110,8 @@ public class Intake extends SubsystemBase {
 
   public Command toggleIntake() {
     return runOnce(() -> {
+      m_isDeployed = !m_isDeployed;
+
       if (m_isDeployed) {
         m_targetAngle = DEPLOYED_POSITION;
       } else {

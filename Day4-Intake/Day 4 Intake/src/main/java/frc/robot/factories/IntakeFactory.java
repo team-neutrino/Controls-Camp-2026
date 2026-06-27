@@ -21,4 +21,8 @@ public class IntakeFactory {
     public static Command retractIntakeCommand() {
         return intake.retractIntake();
     }
+
+    public static Command toggleIntakeCommand() {
+        return intake.toggleIntake();
+    }
 }

@@ -22,6 +22,10 @@ public class RobotContainer {
 
   private void configureBindings() {
     m_driverController.leftBumper().whileTrue(IntakeFactory.runIntakeCommand());
+    m_driverController.rightBumper().whileTrue(IntakeFactory.runOuttake());
+    m_driverController.x().onTrue(IntakeFactory.deployIntakeCommand());
+    m_driverController.y().onTrue(IntakeFactory.retractIntakeCommand());
+    m_driverController.b().onTrue(IntakeFactory.toggleIntakeCommand());
   }
 
   private void setDefaultCommands() {
