@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
@@ -14,6 +15,7 @@ public class Intake extends SubsystemBase {
   private TalonFX m_rollerMotor = new TalonFX(ROLLER_MOTOR_ID, RIO_BUS);
   private TalonFXConfiguration m_rollerMotorConfig = new TalonFXConfiguration();
   private final VoltageOut m_rollerVoltageControl = new VoltageOut(0);
+  private final CurrentLimitsConfigs m_rollerCurrentLimitConfig = new CurrentLimitsConfigs();
 
   public Intake() {
   }
