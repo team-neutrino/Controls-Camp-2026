@@ -81,7 +81,7 @@ public class Intake extends SubsystemBase {
     m_deployMotor.getConfigurator().apply(m_deployMotorConfig);
   }
 
-  private void moveToIntake(double targetPosition) {
+  private void moveIntake(double targetPosition) {
     m_deployMotor.setControl(m_deployPositionControl.withPosition(targetPosition));
   }
 
@@ -97,7 +97,7 @@ public class Intake extends SubsystemBase {
   @Override
   public void periodic() {
     spinRoller(m_rollerMotorVoltage);
-    moveToIntake(m_targetAngle);
+    moveIntake(m_targetAngle);
   }
 
   public Command defaultCommand() {
