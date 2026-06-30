@@ -101,9 +101,9 @@ public class Intake extends SubsystemBase {
         });
   }
 
-  public Command runIntake(double speed) {
+  public Command runIntake(double voltage) {
     return run(() -> {
-      m_rollerMotorVoltage = speed;
+      m_rollerMotorVoltage = voltage;
     });
   }
 
