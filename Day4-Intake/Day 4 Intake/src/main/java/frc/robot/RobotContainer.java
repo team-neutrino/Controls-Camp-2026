@@ -5,6 +5,8 @@
 package frc.robot;
 
 import static frc.robot.util.Subsystems.*;
+
+import frc.robot.factories.IntakeFactory;
 import frc.robot.util.Constants.OperatorConstants;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
