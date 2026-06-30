@@ -107,18 +107,6 @@ public class Intake extends SubsystemBase {
     });
   }
 
-  public Command toggleIntake() {
-    return runOnce(() -> {
-      m_isDeployed = !m_isDeployed;
-
-      if (m_isDeployed) {
-        m_targetAngle = DEPLOYED_POSITION;
-      } else {
-        m_targetAngle = 0;
-      }
-    });
-  }
-
   public Command deployIntake() {
     return runOnce(() -> {
       m_targetAngle = DEPLOYED_POSITION;
@@ -133,8 +121,16 @@ public class Intake extends SubsystemBase {
     });
   }
 
-  public boolean exampleCondition() {
-    return false;
+  public Command toggleIntake() {
+    return runOnce(() -> {
+      m_isDeployed = !m_isDeployed;
+
+      if (m_isDeployed) {
+        m_targetAngle = DEPLOYED_POSITION;
+      } else {
+        m_targetAngle = 0;
+      }
+    });
   }
 
   @Override
