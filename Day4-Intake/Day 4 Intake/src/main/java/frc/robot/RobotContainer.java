@@ -30,11 +30,7 @@ public class RobotContainer {
     intake.setDefaultCommand(intake.defaultCommand());
   }
 
-  /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
-   */
+  // auton command, ignore
   public Command getAutonomousCommand() {
     // does nothing
     return new InstantCommand();
