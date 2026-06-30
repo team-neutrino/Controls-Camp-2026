@@ -4,6 +4,9 @@ import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.signals.InvertedValue;
+import com.ctre.phoenix6.signals.NeutralModeValue;
+
 import static frc.robot.util.Constants.IntakeConstants.*;
 import static frc.robot.util.Constants.RioConstants.*;
 
@@ -18,6 +21,15 @@ public class Intake extends SubsystemBase {
   private final CurrentLimitsConfigs m_rollerCurrentLimitConfig = new CurrentLimitsConfigs();
 
   public Intake() {
+    m_rollerCurrentLimitConfig.withSupplyCurrentLimit(ROLLER_CURRENT_LIMIT)
+        .withSupplyCurrentLimitEnable(true)
+        .withStatorCurrentLimit(ROLLER_CURRENT_LIMIT)
+        .withStatorCurrentLimitEnable(true);
+    m_rollerMotorConfig.CurrentLimits = m_rollerCurrentLimitConfig;
+
+    m_rollerMotor.getConfigurator().apply(m_rollerMotorConfig);
+    m_rollerMotor.setNeutralMode(NeutralModeValue.Coast);
+    m_rollerMotorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
   }
 
   /**
