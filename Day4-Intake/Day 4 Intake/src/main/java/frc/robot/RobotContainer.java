@@ -25,7 +25,7 @@ public class RobotContainer {
   }
 
   private void setDefaultCommands() {
-    intake.setDefaultCommand(intake.exampleMethodCommand());
+    intake.setDefaultCommand(intake.defaultCommand());
   }
 
   /**

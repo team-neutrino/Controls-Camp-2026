@@ -35,11 +35,7 @@ public class Intake extends SubsystemBase {
     m_rollerMotorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
   }
 
-  /**
-   * Example command factory method.
-   *
-   * @return a command
-   */
+  // use this as a model for other commands you'll create
   public Command exampleMethodCommand() {
     return runOnce(
         () -> {
@@ -47,8 +43,11 @@ public class Intake extends SubsystemBase {
         });
   }
 
-  public boolean exampleCondition() {
-    return false;
+  public Command defaultCommand() {
+    return runOnce(
+        () -> {
+
+        });
   }
 
   @Override
