@@ -27,6 +27,9 @@ public class Intake extends SubsystemBase {
         .withStatorCurrentLimitEnable(true);
     m_rollerMotorConfig.CurrentLimits = m_rollerCurrentLimitConfig;
 
+    // uncomment these two lines once you have the deploy motor config made
+    // m_deployMotorConfig.Slot0.kP = INTAKE_kP;
+
     m_rollerMotor.getConfigurator().apply(m_rollerMotorConfig);
     m_rollerMotor.setNeutralMode(NeutralModeValue.Coast);
     m_rollerMotorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
