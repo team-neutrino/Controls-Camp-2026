@@ -31,6 +31,7 @@ public class Intake extends SubsystemBase {
   private double m_rollerMotorVoltage;
   private final PositionVoltage m_deployPositionControl = new PositionVoltage(0);
   private final VoltageOut m_rollerVoltageControl = new VoltageOut(0);
+  private final Follower m_followRequest = new Follower(ROLLER_MOTOR_ID, MotorAlignmentValue.Opposed);
 
   public Intake() {
     m_deployCurrentLimitConfig.withSupplyCurrentLimit(DEPLOY_CURRENT_LIMIT)
@@ -57,8 +58,7 @@ public class Intake extends SubsystemBase {
     m_deployMotor.setPosition(0);
     m_rollerMotorConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
 
-    Follower followRequest = new Follower(ROLLER_MOTOR_ID, MotorAlignmentValue.Opposed);
-    m_rollerFollowerMotor.setControl(followRequest);
+    m_rollerFollowerMotor.setControl(m_followRequest);
   }
 
   public double getMotorAngle() {
