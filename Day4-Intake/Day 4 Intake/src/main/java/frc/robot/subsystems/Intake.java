@@ -81,6 +81,11 @@ public class Intake extends SubsystemBase {
     m_rollerMotor.setControl(m_rollerVoltageControl.withOutput(voltage));
   }
 
+  public boolean isAtTarget() {
+    return getMotorAngle() >= getTargetAngle() - ALLOWED_TARGET_ERROR
+        && getMotorAngle() <= getTargetAngle() + ALLOWED_TARGET_ERROR;
+  }
+
   public void setIntakePID(double new_P, double new_I, double new_D) {
     m_deployMotorConfig.Slot0.kP = new_P;
     m_deployMotorConfig.Slot0.kI = new_I;
