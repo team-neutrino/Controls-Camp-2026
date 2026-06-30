@@ -16,7 +16,7 @@ public final class Constants {
     public static final int DEPLOY_MOTOR_ID = 13;
     public static final int FOLLOWER_MOTOR_ID = 31;
 
-    public static final double ROLLER_CURRENT_LIMIT = 45;
+    public static final double ROLLER_CURRENT_LIMIT = 40;
     public static final double DEPLOY_CURRENT_LIMIT = 45;
 
     public static final double INTAKE_VOLTAGE = 10;
@@ -27,7 +27,7 @@ public final class Constants {
     public static final double ALLOWED_TARGET_ERROR = 0.25;
 
     public static final double INTAKE_kP = 2.25;
-    public static final double INTAKE_kI = 0.0;
-    public static final double INTAKE_kD = 0.0;
+    public static final double INTAKE_kI = 0;
+    public static final double INTAKE_kD = 0;
   }
 }
