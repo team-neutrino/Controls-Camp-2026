@@ -94,12 +94,6 @@ public class Intake extends SubsystemBase {
         && getDeployAngle() <= getTargetAngle() + ALLOWED_TARGET_ERROR;
   }
 
-  @Override
-  public void periodic() {
-    spinRoller(m_rollerMotorVoltage);
-    moveIntake(m_targetAngle);
-  }
-
   public Command defaultCommand() {
     return run(
         () -> {
@@ -141,6 +135,12 @@ public class Intake extends SubsystemBase {
 
   public boolean exampleCondition() {
     return false;
+  }
+
+  @Override
+  public void periodic() {
+    spinRoller(m_rollerMotorVoltage);
+    moveIntake(m_targetAngle);
   }
 
   @Override
