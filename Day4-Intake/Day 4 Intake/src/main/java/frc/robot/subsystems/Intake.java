@@ -61,7 +61,7 @@ public class Intake extends SubsystemBase {
     m_rollerFollowerMotor.setControl(m_followRequest);
   }
 
-  public double getMotorAngle() {
+  public double getDeployAngle() {
     return m_deployMotor.getPosition().getValueAsDouble();
   }
 
@@ -82,8 +82,8 @@ public class Intake extends SubsystemBase {
   }
 
   public boolean isAtTarget() {
-    return getMotorAngle() >= getTargetAngle() - ALLOWED_TARGET_ERROR
-        && getMotorAngle() <= getTargetAngle() + ALLOWED_TARGET_ERROR;
+    return getDeployAngle() >= getTargetAngle() - ALLOWED_TARGET_ERROR
+        && getDeployAngle() <= getTargetAngle() + ALLOWED_TARGET_ERROR;
   }
 
   public void setIntakePID(double new_P, double new_I, double new_D) {
