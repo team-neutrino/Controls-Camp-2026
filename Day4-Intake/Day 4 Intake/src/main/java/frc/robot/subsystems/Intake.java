@@ -73,6 +73,14 @@ public class Intake extends SubsystemBase {
     return m_rollerMotor.getVelocity().getValueAsDouble() * 60;
   }
 
+  public void setIntakePID(double new_P, double new_I, double new_D) {
+    m_deployMotorConfig.Slot0.kP = new_P;
+    m_deployMotorConfig.Slot0.kI = new_I;
+    m_deployMotorConfig.Slot0.kD = new_D;
+
+    m_deployMotor.getConfigurator().apply(m_deployMotorConfig);
+  }
+
   private void moveToIntake(double targetPosition) {
     m_deployMotor.setControl(m_deployPositionControl.withPosition(targetPosition));
   }
@@ -84,14 +92,6 @@ public class Intake extends SubsystemBase {
   public boolean isAtTarget() {
     return getDeployAngle() >= getTargetAngle() - ALLOWED_TARGET_ERROR
         && getDeployAngle() <= getTargetAngle() + ALLOWED_TARGET_ERROR;
-  }
-
-  public void setIntakePID(double new_P, double new_I, double new_D) {
-    m_deployMotorConfig.Slot0.kP = new_P;
-    m_deployMotorConfig.Slot0.kI = new_I;
-    m_deployMotorConfig.Slot0.kD = new_D;
-
-    m_deployMotor.getConfigurator().apply(m_deployMotorConfig);
   }
 
   @Override
