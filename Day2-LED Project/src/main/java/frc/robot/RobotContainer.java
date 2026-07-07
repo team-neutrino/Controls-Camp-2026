@@ -16,7 +16,7 @@ public class RobotContainer {
   private final CommandXboxController XBOX_CONTROLLER_0 = new CommandXboxController(0);
 
   public RobotContainer() {
-    m_LED_subsystem.setDefaultCommand(m_LED_factory.defaultCommand());
+    // m_LED_subsystem.setDefaultCommand(m_LED_factory.defaultCommand());
     XBOX_CONTROLLER_0.a().whileTrue(m_LED_factory.white());
     XBOX_CONTROLLER_0.b().whileTrue(m_LED_factory.orange());
     XBOX_CONTROLLER_0.x().onTrue(m_LED_factory.toggleWhiteAndOrange());

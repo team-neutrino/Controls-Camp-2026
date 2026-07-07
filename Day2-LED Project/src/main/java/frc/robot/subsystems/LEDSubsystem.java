@@ -27,7 +27,6 @@ public class LEDSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     m_addressableLED.setData(m_LEDBuffer);
-
   }
 
   public Command doNothing() {
@@ -39,6 +38,7 @@ public class LEDSubsystem extends SubsystemBase {
   public Command colorCommand(int r, int g, int b) {
     return run(
         () -> {
+          System.out.println("color");
           for (int i = 0; i < m_LEDBuffer.getLength(); i++) {
             m_LEDBuffer.setRGB(i, r, g, b);
           }
