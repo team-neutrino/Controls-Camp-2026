@@ -1,30 +1,6 @@
 package Day2;
 
 public class Calculator {
-    private double m_num1;
-    private double m_num2;
-    private char m_operator;
-
-    public Calculator(double p_num1, double p_num2, char p_operator) {
-        m_num1 = p_num1;
-        m_num2 = p_num2;
-        m_operator = p_operator;
-    }
-
-    public double calculate() {
-        if (m_operator == '+') {
-            return m_num1 + m_num2;
-        } else if (m_operator == '-') {
-            return m_num1 - m_num2;
-        } else if (m_operator == '*') {
-            return m_num1 * m_num2;
-        } else if (m_operator == '/') {
-            return m_num1 / m_num2;
-        } else {
-            System.out.println("Invalid Operator");
-            return 0.0;
-        }
-    }
 
     public static void main(String[] args) {
         Calculator calc1 = new Calculator(4, 2, '+');
