@@ -3,17 +3,6 @@ package Day2;
 public class Calculator {
 
     public static void main(String[] args) {
-        Calculator calc1 = new Calculator(4, 2, '+');
-        System.out.println("Result: " + calc1.calculate()); // Expected: 6.0
-
-        Calculator calc2 = new Calculator(10, 2, '/');
-        System.out.println("Result: " + calc2.calculate()); // Expected: 5.0
-
-        Calculator calc3 = new Calculator(7, 3, '*');
-        System.out.println("Result: " + calc3.calculate()); // Expected: 21
-
-        Calculator calc4 = new Calculator(5, 5, '-');
-        System.out.println("Result: " + calc4.calculate()); // Expected: 0
     }
 
 }
