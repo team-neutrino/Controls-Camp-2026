@@ -30,10 +30,10 @@ public class LEDFactory {
     }
 
     public Command toggleWhiteAndOrange() {
-        return m_subsystem.timedColorSwitch();
+        return m_subsystem.switchColors(255, 165, 0, 255, 255, 255);
     }
 
     public Command rainbow() {
-        return m_subsystem.doNothing();
+        return m_subsystem.rainbow();
     }
 }

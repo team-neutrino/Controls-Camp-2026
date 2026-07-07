@@ -96,4 +96,15 @@ public class LEDSubsystem extends SubsystemBase {
           }
         });
   }
+
+  public Command rainbow() {
+    return run(
+        () -> {
+          int h = 0;
+          for (int i = 0; i < m_LEDBuffer.getLength(); i++) {
+            m_LEDBuffer.setHSV(i, h, 255, 255);
+            h += 18;
+          }
+        });
+  }
 }
