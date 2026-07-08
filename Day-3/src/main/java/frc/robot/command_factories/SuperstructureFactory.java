@@ -4,16 +4,12 @@
 
 package frc.robot.command_factories;
 
-import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.LEDs;
-import frc.robot.subsystems.Shooter;
+import static frc.robot.SubsystemContainer.*;
 
 /** Add your docs here. */
 public class SuperstructureFactory {
-    Shooter shooterSub = new Shooter();
     ShooterFactory shooterFactory = new ShooterFactory(shooterSub);
 
-    LEDs LEDSub = new LEDs();
     LEDFactory LEDFactory = new LEDFactory(LEDSub);
 
     // public Command changeLEDWhenMotorSpin() {
