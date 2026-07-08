@@ -15,12 +15,16 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Intake extends SubsystemBase {
 
-  private TalonFX m_rollerMotor = new TalonFX(ROLLER_MOTOR_ID, RIO_BUS);
-  private TalonFXConfiguration m_rollerMotorConfig = new TalonFXConfiguration();
-  private final VoltageOut m_rollerVoltageControl = new VoltageOut(0);
-  private final CurrentLimitsConfigs m_rollerCurrentLimitConfig = new CurrentLimitsConfigs();
+  private TalonFX m_rollerMotor;
+  private TalonFXConfiguration m_rollerMotorConfig;
+  private final VoltageOut m_rollerVoltageControl;
+  private final CurrentLimitsConfigs m_rollerCurrentLimitConfig;
 
   public Intake() {
+    m_rollerMotor = new TalonFX(ROLLER_MOTOR_ID, RIO_BUS);
+    m_rollerMotorConfig = new TalonFXConfiguration();
+    m_rollerVoltageControl = new VoltageOut(0);
+    m_rollerCurrentLimitConfig = new CurrentLimitsConfigs();
     m_rollerCurrentLimitConfig.withSupplyCurrentLimit(ROLLER_CURRENT_LIMIT)
         .withSupplyCurrentLimitEnable(true)
         .withStatorCurrentLimit(ROLLER_CURRENT_LIMIT)
