@@ -1,16 +1,17 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.subsystems.FakeSubsystem;
-import frc.robot.subsystems.LEDs;
-import frc.robot.subsystems.Shooter;
+import frc.robot.command_factories.*;
+import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final FakeSubsystem m_fakeSubsystem = new FakeSubsystem();
   private final LEDs m_LEDs = new LEDs();
+  private final LEDFactory m_LEDFactory = new LEDFactory(m_LEDs);
   private final Shooter m_shooter = new Shooter();
+  private final ShooterFactory m_ShooterFactory = new ShooterFactory(m_shooter);
   
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
@@ -22,7 +23,11 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    m_driverController.a().whileTrue(m_fakeSubsystem.CountUpCommand());
-    m_driverController.b().whileTrue(m_fakeSubsystem.resetCommand());
+    m_driverController.x().whileTrue(m_fakeSubsystem.CountUpCommand());
+    m_driverController.y().whileTrue(m_fakeSubsystem.resetCommand());
+    m_driverController.a().whileTrue(m_LEDFactory.turnLEDsOrange());
+    m_driverController.b().whileTrue(m_LEDFactory.turnLEDsWhite());
+    m_driverController.leftBumper().whileTrue(m_ShooterFactory.runMotor());
+    m_driverController.rightBumper().whileTrue(m_ShooterFactory.runMotorSlow());
   }
 }

@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.subsystems.Shooter.*;
 
 public class LEDs extends SubsystemBase { 
   private static final int BEAMBREAK_PORT = 1;
@@ -16,7 +17,7 @@ public class LEDs extends SubsystemBase {
   private static final int LED_STRIP_PIXELS = 8;
   private AddressableLED m_addressableLED = new AddressableLED(ROBORIO_LED_PWM_PORT);
   private AddressableLEDBuffer m_LEDBuffer = new AddressableLEDBuffer(LED_STRIP_PIXELS);
-  private DigitalInput m_beambreak = new DigitalInput(BEAMBREAK_PORT);
+  private static DigitalInput m_beambreak = new DigitalInput(BEAMBREAK_PORT);
 
   public LEDs() {
     m_addressableLED.setLength(m_LEDBuffer.getLength());
@@ -31,9 +32,49 @@ public class LEDs extends SubsystemBase {
   }
   }
 
+  public void turnLEDsBlue() {
+    changeLEDColor(0, 0, 255);
+  }
+
+  public void turnLEDsGreen() {
+    changeLEDColor(0, 255, 0);
+  }
+
+  public void turnLEDsRed() {
+    changeLEDColor(255, 0, 0);
+  }
+
+  public void turnLEDsOff() {
+    changeLEDColor(0, 0, 0);
+  }
+
+  public void colorOfChoice() {
+    changeLEDColor(255, 128, 0);
+  }
+
+  public static boolean beamIsBroken() {
+    return !m_beambreak.get();
+  }
+
   @Override
   public void periodic() {
     m_addressableLED.setData(m_LEDBuffer);
+    if (beamIsBroken()) {
+      turnLEDsBlue();
+    }
+    else {
+      turnLEDsGreen();
+    }
+
+    if (Shooter.getMotorSpeed() != 0) {
+      turnLEDsRed();
+    }
+    else if (Shooter.getMotorSpeed() == 0) {
+      colorOfChoice();
+    }
+    else if (Shooter.getMotorSpeed() <= 0.5) {
+      turnLEDsOff();
+    }
   }
 
   public Command doNothing() {
