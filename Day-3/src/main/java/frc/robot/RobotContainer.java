@@ -4,6 +4,8 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.command_factories.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.command_factories.SuperstructureFactory;
+import frc.robot.command_factories.*;
 
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
@@ -12,6 +14,7 @@ public class RobotContainer {
   private final LEDFactory m_LEDFactory = new LEDFactory(m_LEDs);
   private final Shooter m_shooter = new Shooter();
   private final ShooterFactory m_ShooterFactory = new ShooterFactory(m_shooter);
+  private final SuperstructureFactory m_superstructureFactory = new SuperstructureFactory();
   
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
@@ -29,5 +32,6 @@ public class RobotContainer {
     m_driverController.b().whileTrue(m_LEDFactory.turnLEDsWhite());
     m_driverController.leftBumper().whileTrue(m_ShooterFactory.runMotor());
     m_driverController.rightBumper().whileTrue(m_ShooterFactory.runMotorSlow());
+    m_driverController.start().whileTrue(m_superstructureFactory.changeLEDWhenMotorSpin());
   }
 }
