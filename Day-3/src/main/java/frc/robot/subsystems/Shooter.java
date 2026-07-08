@@ -13,7 +13,7 @@ import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 public class Shooter extends SubsystemBase {
-  private static SparkMax m_flywheel = new SparkMax(10, MotorType.kBrushless);
+  private static SparkMax m_flywheel = new SparkMax(1, MotorType.kBrushless);
   private static RelativeEncoder m_encoder = m_flywheel.getEncoder();
   private SparkMaxConfig m_flywheelConfig = new SparkMaxConfig(); 
 
@@ -36,7 +36,6 @@ public class Shooter extends SubsystemBase {
 
   @Override
   public void periodic() {
-    shooterSpeed(0.3);
     System.out.println(getMotorSpeed());
     if (getMotorSpeed() > 6000) {
       m_flywheel.set(0.2);
