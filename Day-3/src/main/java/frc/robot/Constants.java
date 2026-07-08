@@ -19,5 +19,6 @@ public final class Constants {
 
   public static class ShooterConstants {
     public static final double EXAMPLE_CONSTANT = 0.0;
+    public static final int SHOOTER_MOTOR_ID = 1;
   }
 }
