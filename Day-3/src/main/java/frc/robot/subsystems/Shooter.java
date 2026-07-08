@@ -15,7 +15,7 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 public class Shooter extends SubsystemBase {
   private static SparkMax m_flywheel = new SparkMax(1, MotorType.kBrushless);
   private static RelativeEncoder m_encoder = m_flywheel.getEncoder();
-  private SparkMaxConfig m_flywheelConfig = new SparkMaxConfig(); 
+  private SparkMaxConfig m_flywheelConfig = new SparkMaxConfig();
 
   public Shooter() {
     m_flywheelConfig.smartCurrentLimit(40);
@@ -37,12 +37,12 @@ public class Shooter extends SubsystemBase {
   @Override
   public void periodic() {
     System.out.println(getMotorSpeed());
-    if (getMotorSpeed() > 6000) {
-      m_flywheel.set(0.2);
-    }
-    else if (getMotorSpeed() < 3000) {
-      m_flywheel.set(0.3);
-    }
+    // if (getMotorSpeed() > 6000) {
+    // m_flywheel.set(0.2);
+    // }
+    // else if (getMotorSpeed() < 3000) {
+    // m_flywheel.set(0.3);
+    // }
   }
 
   public Command doNothing() {
