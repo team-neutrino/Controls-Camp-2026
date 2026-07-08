@@ -28,6 +28,6 @@ public class RobotContainer {
     m_driverController.a().whileTrue(m_LEDFactory.turnLEDsOrange());
     m_driverController.b().whileTrue(m_LEDFactory.turnLEDsWhite());
     m_driverController.leftBumper().whileTrue(m_ShooterFactory.runMotor());
-    m_driverController.rightBumper().whileTrue(m_ShooterFactory.runMotorSlow());
+    // m_driverController.rightBumper().whileTrue(m_ShooterFactory.runMotorSlow());
   }
 }

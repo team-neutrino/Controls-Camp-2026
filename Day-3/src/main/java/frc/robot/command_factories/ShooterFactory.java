@@ -12,12 +12,12 @@ public class ShooterFactory {
     }
 
     public Command runMotor() {
-        return shooter.runMotor(0.3);
+        return shooter.runMotor();
     }
 
-    public Command runMotorSlow() {
-        return shooter.runMotor(Constants.ShooterConstants.SLOW_SPEED);
-    }
+    // public Command runMotorSlow() {
+    //     return shooter;
+    // }
 
     public Command doNothing() {
         return shooter.doNothing();

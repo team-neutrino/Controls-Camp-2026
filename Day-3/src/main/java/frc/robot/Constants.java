@@ -18,6 +18,6 @@ public final class Constants {
   }
 
   public static class ShooterConstants {
-    public static final double SLOW_SPEED = 0.1;
+    public static final double EXAMPLE_CONSTANT = 0.0;
   }
 }

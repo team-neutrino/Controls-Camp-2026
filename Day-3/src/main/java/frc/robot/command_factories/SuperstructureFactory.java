@@ -16,12 +16,7 @@ public class SuperstructureFactory {
     LEDs LEDSub = new LEDs();
     LEDFactory LEDFactory = new LEDFactory(LEDSub);
 
-    public Command changeLEDWhenMotorSpin() {
-        if (LEDs.beamIsBroken()) {
-            return LEDFactory.turnLEDsWhite().alongWith(shooterFactory.runMotor());
-        }
-        else {
-            return LEDFactory.turnLEDsPurple().alongWith(shooterFactory.runMotor());
-        }
-    }
+    // public Command changeLEDWhenMotorSpin() {
+        
+    // }
 }

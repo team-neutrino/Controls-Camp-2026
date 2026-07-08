@@ -26,24 +26,9 @@ public class Shooter extends SubsystemBase {
   }
 
   // make methods here
-  public void shooterSpeed(double speed) {
-    m_flywheel.set(speed);
-  }
-
-  public static double getMotorSpeed() {
-    return m_encoder.getVelocity();
-  }
 
   @Override
   public void periodic() {
-    shooterSpeed(0.3);
-    System.out.println(getMotorSpeed());
-    if (getMotorSpeed() > 6000) {
-      m_flywheel.set(0.2);
-    }
-    else if (getMotorSpeed() < 3000) {
-      m_flywheel.set(0.3);
-    }
   }
 
   public Command doNothing() {
@@ -52,10 +37,10 @@ public class Shooter extends SubsystemBase {
         });
   }
 
-  public Command runMotor(double speed) {
+  public Command runMotor() {
     return run(
         () -> {
-          m_flywheel.set(speed);
+          //fill here
         });
   }
 }

@@ -32,49 +32,9 @@ public class LEDs extends SubsystemBase {
   }
   }
 
-  public void turnLEDsBlue() {
-    changeLEDColor(0, 0, 255);
-  }
-
-  public void turnLEDsGreen() {
-    changeLEDColor(0, 255, 0);
-  }
-
-  public void turnLEDsRed() {
-    changeLEDColor(255, 0, 0);
-  }
-
-  public void turnLEDsOff() {
-    changeLEDColor(0, 0, 0);
-  }
-
-  public void colorOfChoice() {
-    changeLEDColor(255, 128, 0);
-  }
-
-  public static boolean beamIsBroken() {
-    return !m_beambreak.get();
-  }
-
   @Override
   public void periodic() {
     m_addressableLED.setData(m_LEDBuffer);
-    if (beamIsBroken()) {
-      turnLEDsBlue();
-    }
-    else {
-      turnLEDsGreen();
-    }
-
-    if (Shooter.getMotorSpeed() != 0) {
-      turnLEDsRed();
-    }
-    else if (Shooter.getMotorSpeed() == 0) {
-      colorOfChoice();
-    }
-    else if (Shooter.getMotorSpeed() <= 0.5) {
-      turnLEDsOff();
-    }
   }
 
   public Command doNothing() {

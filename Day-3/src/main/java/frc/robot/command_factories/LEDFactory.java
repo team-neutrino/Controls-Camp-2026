@@ -18,8 +18,4 @@ public class LEDFactory {
     public Command turnLEDsOrange() {
         return LED.colorCommand(0, 0, 0);
     }
-
-    public Command turnLEDsPurple() {
-        return LED.colorCommand(128, 0, 128);
-    }
 }
