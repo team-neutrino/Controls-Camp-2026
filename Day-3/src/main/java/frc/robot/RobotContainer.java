@@ -12,7 +12,6 @@ public class RobotContainer {
   private final LEDs m_LEDs = new LEDs();
   private final Shooter m_shooter = new Shooter();
   
-  // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
@@ -23,8 +22,6 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release
     m_driverController.a().whileTrue(m_fakeSubsystem.CountUpCommand());
     m_driverController.b().whileTrue(m_fakeSubsystem.resetCommand());
   }

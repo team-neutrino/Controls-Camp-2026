@@ -10,7 +10,7 @@ import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 public class Shooter extends SubsystemBase {
-  private SparkMax m_flywheel = new SparkMax(0, MotorType.kBrushless);
+  private SparkMax m_flywheel = new SparkMax(10, MotorType.kBrushless);
   private RelativeEncoder m_encoder = m_flywheel.getEncoder();
   private SparkMaxConfig m_flywheelConfig = new SparkMaxConfig(); 
 

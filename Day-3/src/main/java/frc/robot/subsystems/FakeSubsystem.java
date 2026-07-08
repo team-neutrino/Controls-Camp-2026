@@ -20,14 +20,14 @@ public class FakeSubsystem extends SubsystemBase {
   public void periodic() {
   }
 
-  // Problem #2
+  // Problem #4
   public Command CountUpCommand() {
     return run(() -> {
 
         });
   }
 
-  // Problem #3
+  // Problem #5
   public Command resetCommand() {
     return run(() -> {
       
