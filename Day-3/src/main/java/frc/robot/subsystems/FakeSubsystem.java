@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class FakeSubsystem extends SubsystemBase {
   // Create member variable here
+  private int m_number;
 
   public FakeSubsystem() {
   }
@@ -17,18 +18,25 @@ public class FakeSubsystem extends SubsystemBase {
 
   @Override
   public void periodic() {
-    //run your method here!! 
+    // run your method here!!
+    m_number += 1;
+    System.out.println(m_number);
   }
 
   // Problem #4
   public Command CountUpCommand() {
     return run(() -> {
-        });
+    });
+  }
+
+  public void resetMethod() {
+    m_number = 0;
   }
 
   // Problem #5
   public Command resetCommand() {
     return run(() -> {
+      resetMethod();
     });
   }
 }
