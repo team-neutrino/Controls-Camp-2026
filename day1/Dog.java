@@ -14,7 +14,7 @@ public class Dog {
     public static final int PLAY_ENERGY_REQUIREMENT = 7;
 
     // constructors
-    public Dog(){
+    public Dog() {
 
     }
 
