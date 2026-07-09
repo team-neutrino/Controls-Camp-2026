@@ -1,4 +1,5 @@
 public class Main {
+
     public static void main(String[] args) {
         Dog ArcherDog = new Dog("Golden Retriever", 10, "Fluffy", "golden probably", 124);
         Dog AlexDog = new Dog("Pitbull", 2.5, "cupcake", "green", 65, false, 7, true);
@@ -10,6 +11,8 @@ public class Main {
         Archer.playWithDog();
         waitShort();
         ArcherDog.sleep();
+        waitShortest();
+        Archer.playWithDog();
         waitLong();
 
         ArcherDog.setEnergyLevel(11);
@@ -21,10 +24,14 @@ public class Main {
         AlexDog.bark();
 
         waitLong();
-        System.out.println(Archer.getName() + "'s Dog: "  + ArcherDog.getName() + "Alex Dog: " + AlexDog.getName());
+        System.out.println(Archer.getName() + "'s Dog: " + ArcherDog.getName() + "Alex Dog: " + AlexDog.getName());
         waitShortest();
         System.out.println(
                 Alex.getName() + "'s Dog: " + Alex.getDogName() + Alex.getName() + "'s Dog: " + Alex.getDogName());
+
+        waitLong();
+        DogOwner Allen = new DogOwner("Allen");
+        Allen.playWithDog();
     }
 
     private static void waitLong() {

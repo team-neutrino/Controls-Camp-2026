@@ -9,7 +9,15 @@ public class Dog {
     private int m_energyLevel; // 0-10
     private boolean m_isReadyToPlay;
 
+    public static final int MAX_ENERGY_LEVEL = 10;
+    public static final int TRAIN_ENERGY_REQUIREMENT = 9;
+    public static final int PLAY_ENERGY_REQUIREMENT = 7;
+
     // constructors
+    public Dog(){
+
+    }
+
     public Dog(String breed, double age, String name, String color, double weight) {
         m_breed = breed;
         m_age = age;
@@ -26,7 +34,7 @@ public class Dog {
         m_color = color;
         m_weight = weight;
         m_isTrained = isTrained;
-        if (energyLevel <= 10 && energyLevel >= 0) {
+        if (energyLevel <= MAX_ENERGY_LEVEL && energyLevel >= 0) {
             m_energyLevel = energyLevel;
         } else {
             System.out.println("ENERGY LEVEL NOT WITHIN BOUNDS (0-10)");
@@ -65,12 +73,12 @@ public class Dog {
     }
 
     public boolean isReadyToPlay() {
-        if (m_energyLevel >= 7) {
+        if (m_energyLevel >= PLAY_ENERGY_REQUIREMENT) {
             m_isReadyToPlay = true;
         } else {
             m_isReadyToPlay = false;
         }
-        return m_energyLevel >= 7;
+        return m_energyLevel >= PLAY_ENERGY_REQUIREMENT;
     }
 
     // setters
@@ -96,37 +104,37 @@ public class Dog {
             m_energyLevel -= 5;
             System.out.println("played at the park or somewhere for a while");
         } else {
-            System.out.println("too tired");
+            System.out.println("too tired to play");
         }
     }
 
     public void sleep() {
-        if (m_energyLevel < 4) {
-            m_energyLevel += 6;
+        if (m_energyLevel < 3) {
+            m_energyLevel += 8;
         } else {
-            m_energyLevel = 10;
+            m_energyLevel = MAX_ENERGY_LEVEL;
         }
         System.out.println(getName() + " slept beautifully");
     }
 
     public void sleepButConcise() {
-        m_energyLevel = Math.min(10, m_energyLevel + 6);
+        m_energyLevel = Math.min(MAX_ENERGY_LEVEL, m_energyLevel + 6);
     }
 
     public void train() {
         setTrained(true);
 
-        if (getEnergyLevel() < 9) {
+        if (getEnergyLevel() < TRAIN_ENERGY_REQUIREMENT) {
             System.out.println("Can't train I need sleep");
         } else {
-            setEnergyLevel(getEnergyLevel() - 9);
+            setEnergyLevel(getEnergyLevel() - TRAIN_ENERGY_REQUIREMENT);
             setTrained(true);
             System.out.println("Successfully trained, can now do 0 tricks");
         }
     }
 
     public void setEnergyLevel(int energyLevel) {
-        if (energyLevel <= 10 && energyLevel >= 0) {
+        if (energyLevel <= MAX_ENERGY_LEVEL && energyLevel >= 0) {
             m_energyLevel = energyLevel;
         } else {
             System.out.println("ENERGY LEVEL NOT WITHIN BOUNDS (0-10)");

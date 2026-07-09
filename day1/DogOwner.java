@@ -1,7 +1,7 @@
 public class DogOwner {
     // member variables
-    String m_name;
-    Dog m_dog;
+    private String m_name;
+    private Dog m_dog;
 
     public DogOwner(String name) {
         m_name = name;
