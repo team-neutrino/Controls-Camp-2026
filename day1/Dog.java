@@ -11,7 +11,7 @@ public class Dog {
 
     public static final int MAX_ENERGY_LEVEL = 10;
     public static final int TRAIN_ENERGY_REQUIREMENT = 9;
-    public static final int PLAY_ENERGY_REQUIREMENT = 7;
+    public static final int PLAY_ENERGY_REQUIREMENT = 6;
 
     // constructors
     public Dog() {

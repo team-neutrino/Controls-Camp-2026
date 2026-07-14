@@ -28,7 +28,6 @@ public class Main {
         waitShortest();
         System.out.println(
                 Alex.getName() + "'s Dog: " + Alex.getDogName() + Alex.getName() + "'s Dog: " + Alex.getDogName());
-
         waitLong();
         DogOwner Allen = new DogOwner("Allen");
         Allen.playWithDog();
